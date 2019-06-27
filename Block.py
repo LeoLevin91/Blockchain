@@ -44,11 +44,13 @@ def checkIntegrity():
         actualHash = getHash(prevFile)
 
         if h == actualHash:
-            result.append(str(prevFile) + ': ' + str(True))
+            res = 'Ok'
         else:
-            result.append(str(prevFile) + ': ' + str(False))
+            res = 'Currupted'
 
-    print(result)
+        result.append({'block': prevFile, 'result': res})
+
+    return result
 
 def nameFile():
     """Получение имени файлов в дериктории
